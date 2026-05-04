@@ -5,10 +5,12 @@
     Add Shift
   </button>
 
-  <button class="rounded-md bg-blue-500 text-white font-bold px-4 py-2 w-30
-  hover:bg-blue-600 active:opacity-80"
-          (click)="authService.logout()"
-  >
-    Logout
-  </button>
+  <a routerLink="home">
+    <button class="rounded-md bg-blue-500 text-white font-bold px-4 py-2 w-30
+      hover:bg-blue-600 active:opacity-80"
+      (click)="authService.logout()"
+    >
+      Logout
+    </button>
+  </a>
 </div>
