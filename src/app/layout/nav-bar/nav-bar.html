@@ -1,0 +1,16 @@
+<nav class="w-full border-b bg-white">
+  <div class="max-w-7xl mx-auto">
+    <div class="px-4 h-25 flex justify-between items-center">
+      <img src="assets/logo.png"
+           alt="app logo"
+           class="w-[150px]"
+      >
+      @if (authService.loggedIn()) {
+        <app-logged-in />
+      } @else {
+        <app-logged-out />
+      }
+    </div>
+  </div>
+</nav>
+
