@@ -1,13 +1,12 @@
 import {Component, inject, signal} from '@angular/core';
 import {LoggedIn} from './components/logged-in/logged-in';
-import {LoggedOut} from './components/logged-out/logged-out';
 import {AuthService} from '../../core/services/auth-service';
+import {toSignal} from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-nav-bar',
   imports: [
-    LoggedIn,
-    LoggedOut
+    LoggedIn
   ],
   templateUrl: './nav-bar.html',
   styleUrl: './nav-bar.css',
@@ -15,5 +14,7 @@ import {AuthService} from '../../core/services/auth-service';
 export class NavBar {
 
   authService = inject(AuthService);
+
+  loggedIn = toSignal(this.authService.user$);
 
 }

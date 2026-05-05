@@ -1,14 +1,18 @@
-<nav class="w-full border-b bg-white">
+<nav class="w-full border-b-4 border-gray-200 bg-white sticky top-0 z-50">
   <div class="max-w-7xl mx-auto">
-    <div class="px-4 h-25 flex justify-between items-center">
+    <div class="px-2 sm:px-4 h-25 flex justify-between items-center">
+
+      <img src="assets/small-logo.png"
+           alt="mobile logo"
+           class="block sm:hidden w-[150px]"
+      >
+
       <img src="assets/logo.png"
            alt="app logo"
-           class="w-[150px]"
+           class="hidden sm:block w-[150px]"
       >
-      @if (authService.loggedIn()) {
+      @if (loggedIn()) {
         <app-logged-in />
-      } @else {
-        <app-logged-out />
       }
     </div>
   </div>

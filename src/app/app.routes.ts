@@ -5,7 +5,7 @@ import {SignedOut} from './features/signed-out/signed-out';
 export const routes: Routes = [
   {
     path: "",
-    redirectTo: "home",
+    redirectTo: "",
     pathMatch: 'full'
   },
   {

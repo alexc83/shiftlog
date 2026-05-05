@@ -1,1 +1,25 @@
-<p>signed-out works!</p>
+<main class="min-h-screen bg-gray-100 pt-2 pb-8 px-4">
+
+  <div class="max-w-md mx-auto flex flex-col items-center mt-0">
+    <img src="assets/login-logo.png"
+         alt="app logo"
+         class="w-full max-w-md mb-8"
+    >
+    @if (mode() === 'sign-in') {
+      <div class="w-full max-w-md bg-white p-8 rounded-xl shadow-md">
+        <app-sign-in-or-register-form [formType]="'sign-in'"/>
+      </div>
+      <p class="mt-4 text-center text-gray-600">
+        Don't have an account? <a (click)="toggleMode()" class="text-blue-500 hover:underline">Sign up</a>
+      </p>
+    } @else {
+      <div class="w-full max-w-md bg-white p-8 rounded-xl shadow-md">
+        <app-sign-in-or-register-form [formType]="'sign-up'"/>
+      </div>
+      <p class="mt-4 text-center text-gray-600">
+        Already registered? <a (click)="toggleMode()" class="text-blue-500 hover:underline">Sign in</a>
+      </p>
+    }
+
+  </div>
+</main>
