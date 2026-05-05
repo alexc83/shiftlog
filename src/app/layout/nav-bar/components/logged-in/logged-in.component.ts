@@ -1,5 +1,5 @@
 import {Component, inject} from '@angular/core';
-import {AuthService} from '../../../../core/services/auth-service';
+import {AuthService} from '../../../../core/services/auth.service';
 import {RouterLink} from '@angular/router';
 
 @Component({
@@ -7,10 +7,10 @@ import {RouterLink} from '@angular/router';
   imports: [
     RouterLink
   ],
-  templateUrl: './logged-in.html',
-  styleUrl: './logged-in.css',
+  templateUrl: './logged-in.component.html',
+  styleUrl: './logged-in.component.css',
 })
-export class LoggedIn {
+export class LoggedInComponent {
 
   authService = inject(AuthService);
 }

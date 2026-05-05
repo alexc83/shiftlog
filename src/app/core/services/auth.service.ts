@@ -12,6 +12,10 @@ export class AuthService {
   // check if the user is logged in or not
   readonly user$ = authState(this.auth);
 
+  // get current userId
+  get currentUserId() {
+    return this.auth.currentUser?.uid;
+  }
   // register user
   async register(email: string, password: string) {
     return createUserWithEmailAndPassword(this.auth, email, password);

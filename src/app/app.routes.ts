@@ -1,19 +1,19 @@
 import { Routes } from '@angular/router';
-import {Dashboard} from './features/dashboard/dashboard';
-import {SignedOut} from './features/signed-out/signed-out';
+import {DashboardComponent} from './features/dashboard/dashboard.component';
+import {SignedOutComponent} from './features/signed-out/signed-out.component';
 
 export const routes: Routes = [
   {
     path: "",
-    redirectTo: "",
+    redirectTo: "home",
     pathMatch: 'full'
   },
   {
     path: "home",
-    component: SignedOut
+    component: SignedOutComponent
   },
   {
     path: "dashboard",
-    component: Dashboard
+    component: DashboardComponent
   }
 ];

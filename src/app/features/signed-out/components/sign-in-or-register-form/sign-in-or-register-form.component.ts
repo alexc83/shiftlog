@@ -1,6 +1,6 @@
 import {Component, inject, input, signal} from '@angular/core';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
-import {AuthService} from '../../../../core/services/auth-service';
+import {AuthService} from '../../../../core/services/auth.service';
 import {Router} from '@angular/router';
 
 @Component({
@@ -8,10 +8,10 @@ import {Router} from '@angular/router';
   imports: [
     ReactiveFormsModule
   ],
-  templateUrl: './sign-in-or-register-form.html',
-  styleUrl: './sign-in-or-register-form.css',
+  templateUrl: './sign-in-or-register-form.component.html',
+  styleUrl: './sign-in-or-register-form.component.css',
 })
-export class SignInOrRegisterForm {
+export class SignInOrRegisterFormComponent {
 
   formType = input<"sign-in" | "sign-up">("sign-in");
 

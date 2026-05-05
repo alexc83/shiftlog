@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SignInOrRegisterForm } from './sign-in-or-register-form';
+import { SignedOutComponent } from './signed-out.component';
 
-describe('SignInOrRegisterForm', () => {
-  let component: SignInOrRegisterForm;
-  let fixture: ComponentFixture<SignInOrRegisterForm>;
+describe('SignedOutComponent', () => {
+  let component: SignedOutComponent;
+  let fixture: ComponentFixture<SignedOutComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SignInOrRegisterForm]
+      imports: [SignedOutComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(SignInOrRegisterForm);
+    fixture = TestBed.createComponent(SignedOutComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
