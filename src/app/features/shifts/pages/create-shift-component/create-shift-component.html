@@ -1,0 +1,101 @@
+<main class="bg-gray-100 min-h-screen">
+  <div class="max-w-5xl mx-auto px-4 py-12">
+    <header class="mb-10 flex justify-between items-center">
+      <a routerLink="/dashboard">
+        <button class="rounded-md bg-blue-500 text-white font-bold px-4 py-2 sm:w-30
+          hover:bg-blue-600 active:opacity-80"
+        >
+          Back
+        </button>
+      </a>
+    </header>
+
+    <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden p-8">
+
+      <h2 class="text-2xl font-bold text-gray-800 text-center mb-6">
+        Add Shift
+      </h2>
+      <form class="space-y-5" [formGroup]="createShiftForm" (ngSubmit)="onSubmit()">
+
+        <!-- Date -->
+        <label for="date" class="block text-sm font-medium text-gray-700 mb-1">Date:</label>
+        <input id="date"
+               type="date"
+               formControlName="date"
+               class="w-full px-4 py-2 border border-gray-300
+              rounded-lg focus:ring-2 focus-ring-blue-500"
+        />
+
+        @if (createShiftForm.get('date')?.invalid && createShiftForm.get('date')?.touched) {
+          <div class="text-red-500 text-sm mt-1">
+            Please enter a shift date.
+          </div>
+        }
+
+        <!-- Unit -->
+        <label for="unit" class="block text-sm font-medium text-gray-700 mb-1">Unit:</label>
+        <select
+          id="unit"
+          formControlName="unit"
+          class="w-full px-4 py-2 border border-gray-300
+              rounded-lg focus:ring-2 focus-ring-blue-500"
+        >
+          @for (unit of units; track unit) {
+            <option [value]="unit">{{ unit }}</option>
+          }
+        </select>
+
+        @if (createShiftForm.get('unit')?.invalid && createShiftForm.get('unit')?.touched) {
+          <div class="text-red-500 text-sm mt-1">
+            Please select a unit.
+          </div>
+        }
+
+        <!-- Shift Type -->
+        <label for="shift-type" class="block text-sm font-medium text-gray-700 mb-1">Shift Type:</label>
+        <select
+          id="shift-type"
+          formControlName="shiftType"
+          class="w-full px-4 py-2 border border-gray-300
+              rounded-lg focus:ring-2 focus-ring-blue-500"
+        >
+          @for (shiftType of shiftTypes; track shiftType) {
+            <option [value]="shiftType">{{  shiftType }}</option>
+
+          }
+        </select>
+
+        @if (createShiftForm.get('shiftType')?.invalid && createShiftForm.get('shiftType')?.touched) {
+          <div class="text-red-500 text-sm mt-1">
+            Please select a shift type.
+          </div>
+        }
+
+        <!-- Notes -->
+        <label for="notes" class="block text-sm font-medium text-gray-700 mb-1">Notes:</label>
+        <textarea
+          id="notes"
+          formControlName="notes"
+          rows="4"
+          class="w-full px-4 py-2 border border-gray-300
+              rounded-lg focus:ring-2 focus-ring-blue-500"
+        >
+        </textarea>
+
+        @if (createShiftForm.get('notes')?.invalid && createShiftForm.get('notes')?.touched) {
+          <div class="text-red-500 text-sm mt-1">
+            Notes must be 30 characters or less.
+          </div>
+        }
+
+        <input
+          type="submit"
+          [value]="editMode() ? 'Update Shift' : 'Add Shift'"
+          [disabled]="createShiftForm.invalid"
+          class="w-full bg-blue-500 text-white py-2 px-4 rounded-lg
+      hover:bg-blue-600 active:opacity-80 disabled:opacity-50 disabled:cursor-not-allowed">
+
+      </form>
+    </div>
+  </div>
+</main>

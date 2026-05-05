@@ -5,7 +5,7 @@ import {
   collectionData,
   deleteDoc,
   doc,
-  Firestore,
+  Firestore, getDoc,
   query,
   updateDoc,
   where,
@@ -46,6 +46,12 @@ export class ShiftDataService {
         return of([]);
       }),
     );
+  }
+
+  async getShiftById(id: string) {
+    const shiftDoc = doc(this.firestore, this.collectionName, id);
+    const snapshot = await getDoc(shiftDoc);
+    return snapshot.data() as Shift | undefined;
   }
 
   async updateShift(id: string, shiftData: Partial<Shift>) {
