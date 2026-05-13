@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { AuthService } from './auth.service';
 import {initializeApp, provideFirebaseApp} from '@angular/fire/app';
 import {getAuth, provideAuth} from '@angular/fire/auth';
-import {environment} from '../../../environments/environment';
+import {environment} from '../../../environments/environment.development';
 
 describe('AuthService', () => {
   let service: AuthService;
